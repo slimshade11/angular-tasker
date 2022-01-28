@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TasksFacade } from '../../tasks.facade';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   text = '';
 
-  constructor() {}
+  constructor(private tasksFacade: TasksFacade) {}
 
   ngOnInit(): void {}
 
@@ -17,5 +18,8 @@ export class HeaderComponent implements OnInit {
     this.text = target.value;
   }
 
-  addTodo(): void {}
+  addTodo(): void {
+    this.tasksFacade.setTasks(this.text);
+    this.text = '';
+  }
 }

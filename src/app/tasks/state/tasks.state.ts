@@ -12,7 +12,14 @@ export class TasksState {
     return this.tasks$.asObservable();
   }
 
-  setTasks(task: TaskInterface): void {
-    // this.tasks$.next(task);
+  setTasks(text: string): void {
+    const newTask: TaskInterface = {
+      text,
+      isCompleted: false,
+      id: Math.random().toString(16),
+    };
+
+    const updatedTasks = [...this.tasks$.getValue(), newTask];
+    this.tasks$.next(updatedTasks);
   }
 }
