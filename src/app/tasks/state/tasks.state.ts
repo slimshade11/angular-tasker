@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TaskInterface } from '../interfaces/task.interface';
+import { FilterEnum } from '../types/filter.enum';
+import { TaskInterface } from '../types/task.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TasksState {
   tasks$: BehaviorSubject<TaskInterface[]> = new BehaviorSubject<TaskInterface[]>([]);
+  filter$: BehaviorSubject<FilterEnum> = new BehaviorSubject<FilterEnum>(FilterEnum.all);
 
   getTasks$(): Observable<TaskInterface[]> {
     return this.tasks$.asObservable();
+  }
+
+  getFilter$(): Observable<FilterEnum> {
+    return this.filter$.asObservable();
   }
 
   setTasks(text: string): void {

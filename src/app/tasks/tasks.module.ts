@@ -4,6 +4,7 @@ import { TasksComponent } from 'src/app/tasks/components/tasks/tasks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { TasksService } from './services/tasks.service';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TasksComponent, HeaderComponent],
+  declarations: [TasksComponent, HeaderComponent, MainComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
   providers: [TasksService],
 })
