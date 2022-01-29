@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { TasksComponent } from 'src/app/tasks/components/tasks/tasks.component';
 import { HeaderComponent } from 'src/app/tasks/components/header/header.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [TasksComponent, HeaderComponent, MainComponent, TaskComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), InputTextModule],
+  imports: [CommonModule, RouterModule.forChild(routes), InputTextModule, ButtonModule],
   providers: [TasksState],
 })
 export class TasksModule {}

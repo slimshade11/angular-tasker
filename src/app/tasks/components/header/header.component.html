@@ -1,15 +1,18 @@
 <header class="header">
-  <h1>Tasker</h1>
-  <input
-    autofocus
-    type="text"
-    placeholder="What is you next task?"
-    class="new-todo"
-    [value]="text"
-    (keyup)="changeText($event)"
-    (keyup.enter)="addTodo()"
-    id="float-input"
-    type="text"
-    pInputText
-  />
+  <h1>TaskeR</h1>
+  <div class="flex">
+    <input
+      autofocus
+      type="text"
+      placeholder="What is you next task?"
+      class="new-todo"
+      [value]="text"
+      (keyup)="changeText($event)"
+      (keyup.enter)="addTodo()"
+      id="float-input"
+      type="text"
+      pInputText
+    />
+    <button pButton type="button" label="Add Task" (click)="addTodo()"></button>
+  </div>
 </header>

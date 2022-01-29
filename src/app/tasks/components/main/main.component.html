@@ -1,4 +1,6 @@
-<section class="main" [class.hidden]="true">
+<section class="main" [class.hidden]="isTaskListEmpty$ | async">
+  <input type="checkbox" id="toggle-all" class="toggle-all" [checked]="isAllTasksSelected$ | async" />
+  <label for="toggle-all">Mark all as completed</label>
   <ul class="todo-list">
     <app-task *ngFor="let task of visibleTasks$ | async" [task]="task"></app-task>
   </ul>
