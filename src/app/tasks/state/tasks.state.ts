@@ -30,11 +30,10 @@ export class TasksState {
   }
 
   toggleAllTasks(isCompleted: boolean): void {
-    console.log('isCompleted:' + isCompleted);
     const updatedTasks = this.tasks$.getValue().map((task) => {
       return { ...task, isCompleted };
     });
 
-    console.log(updatedTasks);
+    this.tasks$.next(updatedTasks);
   }
 }
