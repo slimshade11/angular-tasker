@@ -18,7 +18,11 @@ export class TasksFacade {
     return this.tasksState.getFilter$();
   }
 
-  setTasks(task: string): void {
-    this.tasksState.setTasks(task);
+  addTask(task: string): void {
+    this.tasksState.addTask(task);
+  }
+
+  toggleAllTasks(isCompleted: boolean) {
+    this.tasksState.toggleAllTasks(isCompleted);
   }
 }

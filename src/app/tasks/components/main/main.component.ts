@@ -51,6 +51,11 @@ export class MainComponent implements OnInit, OnDestroy {
     );
   }
 
+  toggleAllTasks(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.tasksFacade.toggleAllTasks(target.checked);
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

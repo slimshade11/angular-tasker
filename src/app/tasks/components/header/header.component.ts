@@ -17,7 +17,7 @@ export class HeaderComponent {
   }
 
   addTodo(): void {
-    this.tasksFacade.setTasks(this.text);
+    this.tasksFacade.addTask(this.text);
     this.text = '';
   }
 }

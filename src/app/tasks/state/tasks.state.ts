@@ -18,7 +18,7 @@ export class TasksState {
     return this.filter$.asObservable();
   }
 
-  setTasks(text: string): void {
+  addTask(text: string): void {
     const newTask: TaskInterface = {
       text,
       isCompleted: false,
@@ -27,5 +27,14 @@ export class TasksState {
 
     const updatedTasks = [...this.tasks$.getValue(), newTask];
     this.tasks$.next(updatedTasks);
+  }
+
+  toggleAllTasks(isCompleted: boolean): void {
+    console.log('isCompleted:' + isCompleted);
+    const updatedTasks = this.tasks$.getValue().map((task) => {
+      return { ...task, isCompleted };
+    });
+
+    console.log(updatedTasks);
   }
 }
