@@ -12,11 +12,17 @@ import { map } from 'rxjs/operators';
 })
 export class MainComponent implements OnInit {
   visibleTasks$: Observable<TaskInterface[]>;
-  filter$: Observable<FilterEnum>;
-  tasks$: Observable<TaskInterface[]>;
+  filter$: Observable<FilterEnum> = this.tasksFacade.getFilter();
+  tasks$: Observable<TaskInterface[]> = this.tasksFacade.getTasks();
 
-  constructor(private tasksFacade: TasksFacade) {
-    this.visibleTasks$ = combineLatest([this.tasksFacade.getFilter(), this.tasksFacade.getTasks()]).pipe(
+  constructor(private tasksFacade: TasksFacade) {}
+
+  ngOnInit(): void {
+    this.showVisibleTasks();
+  }
+
+  showVisibleTasks(): void {
+    this.visibleTasks$ = combineLatest([this.filter$, this.tasks$]).pipe(
       map(([filter, tasks]: [FilterEnum, TaskInterface[]]) => {
         if (filter === FilterEnum.active) {
           return tasks.filter((task) => !task.isCompleted);
@@ -27,6 +33,4 @@ export class MainComponent implements OnInit {
       }),
     );
   }
-
-  ngOnInit(): void {}
 }

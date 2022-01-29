@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { TasksService } from './services/tasks.service';
 import { MainComponent } from './components/main/main.component';
 
+import { InputTextModule } from 'primeng/inputtext';
+
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [TasksComponent, HeaderComponent, MainComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), InputTextModule],
   providers: [TasksService],
 })
 export class TasksModule {}
