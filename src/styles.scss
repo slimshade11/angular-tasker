@@ -43,32 +43,32 @@ body {
   display: none;
 }
 
-.todoapp {
+.tasker-app {
   background: #fff;
   margin: 130px 0 40px 0;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.todoapp input::-webkit-input-placeholder {
+.tasker-app input::-webkit-input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.4);
 }
 
-.todoapp input::-moz-placeholder {
+.tasker-app input::-moz-placeholder {
   font-style: italic;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.4);
 }
 
-.todoapp input::input-placeholder {
+.tasker-app input::input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.4);
 }
 
-.todoapp h1 {
+.tasker-app h1 {
   position: absolute;
   top: -140px;
   width: 100%;

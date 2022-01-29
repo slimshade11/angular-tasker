@@ -1,1 +1,5 @@
-{{ visibleTasks$ | async | json }}
+<section class="main" [class.hidden]="true">
+  <ul class="todo-list">
+    <app-task *ngFor="let task of visibleTasks$ | async" [task]="task"></app-task>
+  </ul>
+</section>

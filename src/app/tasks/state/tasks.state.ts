@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { FilterEnum } from '../types/filter.enum';
-import { TaskInterface } from '../types/task.interface';
+import { FilterEnum } from 'src/app/tasks/types/filter.enum';
+import { TaskInterface } from 'src/app/tasks/types/task.interface';
 
 @Injectable({
   providedIn: 'root',

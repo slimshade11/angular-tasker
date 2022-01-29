@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { TasksState } from './state/tasks.state';
 import { FilterEnum } from './types/filter.enum';
 import { TaskInterface } from './types/task.interface';

@@ -1,18 +1,15 @@
 <header class="header">
   <h1>Tasker</h1>
-  <span class="p-float-label">
-    <input
-      autofocus
-      type="text"
-      placeholder="What is you next task?"
-      class="new-todo"
-      [value]="text"
-      (keyup)="changeText($event)"
-      (keyup.enter)="addTodo()"
-      id="float-input"
-      type="text"
-      pInputText
-    />
-    <label for="float-input">Username</label>
-  </span>
+  <input
+    autofocus
+    type="text"
+    placeholder="What is you next task?"
+    class="new-todo"
+    [value]="text"
+    (keyup)="changeText($event)"
+    (keyup.enter)="addTodo()"
+    id="float-input"
+    type="text"
+    pInputText
+  />
 </header>

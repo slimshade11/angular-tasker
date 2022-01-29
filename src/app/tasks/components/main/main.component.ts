@@ -15,11 +15,11 @@ export class MainComponent implements OnInit {
   filter$: Observable<FilterEnum> = this.tasksFacade.getFilter();
   tasks$: Observable<TaskInterface[]> = this.tasksFacade.getTasks();
 
-  constructor(private tasksFacade: TasksFacade) {}
-
-  ngOnInit(): void {
+  constructor(private tasksFacade: TasksFacade) {
     this.showVisibleTasks();
   }
+
+  ngOnInit(): void {}
 
   showVisibleTasks(): void {
     this.visibleTasks$ = combineLatest([this.filter$, this.tasks$]).pipe(
