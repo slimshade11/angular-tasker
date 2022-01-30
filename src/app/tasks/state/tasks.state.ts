@@ -36,4 +36,8 @@ export class TasksState {
 
     this.tasks$.next(updatedTasks);
   }
+
+  setFilter(filter: FilterEnum): void {
+    this.filter$.next(filter);
+  }
 }

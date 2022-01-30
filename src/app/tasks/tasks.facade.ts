@@ -25,4 +25,8 @@ export class TasksFacade {
   toggleAllTasks(isCompleted: boolean) {
     this.tasksState.toggleAllTasks(isCompleted);
   }
+
+  setFilter(filter: FilterEnum): void {
+    this.tasksState.setFilter(filter);
+  }
 }

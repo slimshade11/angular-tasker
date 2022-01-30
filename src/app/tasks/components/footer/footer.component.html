@@ -1,1 +1,32 @@
-<footer class="footer" [class.hidden]="isTaskListEmpty$ | async">Foter</footer>
+<footer class="footer" [class.hidden]="isTaskListEmpty$ | async">
+  <span class="todo-count">
+    <strong> {{ activeTasksLength$ | async }} </strong>
+    {{ itemsLeftText$ | async }}
+  </span>
+  <ul class="filters">
+    <li>
+      <span
+        class="link"
+        [class.selected]="(filter$ | async) === filterEnum.all"
+        (click)="changeFilter(filterEnum.all)"
+        >All</span
+      >
+    </li>
+    <li>
+      <span
+        class="link"
+        [class.selected]="(filter$ | async) === filterEnum.active"
+        (click)="changeFilter(filterEnum.active)"
+        >Active</span
+      >
+    </li>
+    <li>
+      <span
+        class="link"
+        [class.selected]="(filter$ | async) === filterEnum.completed"
+        (click)="changeFilter(filterEnum.completed)"
+        >Completed</span
+      >
+    </li>
+  </ul>
+</footer>

@@ -275,7 +275,8 @@ body {
   left: 0;
   height: 50px;
   overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
     0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }
 
@@ -301,7 +302,7 @@ body {
   display: inline;
 }
 
-.filters li a {
+.filters li .link {
   color: inherit;
   margin: 3px;
   padding: 3px 7px;
@@ -310,11 +311,11 @@ body {
   border-radius: 3px;
 }
 
-.filters li a:hover {
+.filters li .link:hover {
   border-color: rgba(175, 47, 47, 0.1);
 }
 
-.filters li a.selected {
+.filters li .link.selected {
   border-color: rgba(175, 47, 47, 0.2);
 }
 
