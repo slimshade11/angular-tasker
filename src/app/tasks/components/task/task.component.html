@@ -4,14 +4,15 @@
       type="checkbox"
       class="toggle"
       [checked]="task.isCompleted"
-      (change)="toggleTask()"
+      (change)="toggleSingleTask(task.id)"
     />
     <label (dblclick)="setTaskInEditMode()"> {{ task.text }} </label>
-    <button class="destroy" (click)="removeTask()"></button>
+    <button class="destroy" (click)="removeTask(task.id)"></button>
   </div>
 
   <ng-container *ngIf="isEditing">
     <input
+      #textInput
       type="text"
       class="edit"
       [value]="editingText"

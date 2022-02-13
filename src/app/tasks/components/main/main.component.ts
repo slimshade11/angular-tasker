@@ -59,7 +59,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
   setEditingId(editingId: any): void {
     this.editingId = editingId;
-    console.log(this.editingId);
   }
 
   ngOnDestroy(): void {

@@ -1,3 +1,4 @@
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { FilterEnum } from 'src/app/tasks/types/filter.enum';
@@ -37,7 +38,41 @@ export class TasksState {
     this.tasks$.next(updatedTasks);
   }
 
+  toggleSingleTask(id: string): void {
+    const updatedTasks = this.tasks$.getValue().map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+      return task;
+    });
+
+    this.tasks$.next(updatedTasks);
+  }
+
   setFilter(filter: FilterEnum): void {
     this.filter$.next(filter);
+  }
+
+  changeTask(id: string, text: string): void {
+    const updatedTasks = this.tasks$.getValue().map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          text,
+        };
+      }
+      return task;
+    });
+
+    this.tasks$.next(updatedTasks);
+  }
+
+  removeTask(id: string): void {
+    const updatedTasks = this.tasks$.getValue().filter((task) => task.id !== id);
+
+    this.tasks$.next(updatedTasks);
   }
 }

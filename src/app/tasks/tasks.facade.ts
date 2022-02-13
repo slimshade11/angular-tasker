@@ -26,7 +26,19 @@ export class TasksFacade {
     this.tasksState.toggleAllTasks(isCompleted);
   }
 
+  toggleSingleTask(id: string): void {
+    this.tasksState.toggleSingleTask(id);
+  }
+
   setFilter(filter: FilterEnum): void {
     this.tasksState.setFilter(filter);
+  }
+
+  changeTask(id: string, text: string): void {
+    this.tasksState.changeTask(id, text);
+  }
+
+  removeTask(id: string): void {
+    this.tasksState.removeTask(id);
   }
 }
