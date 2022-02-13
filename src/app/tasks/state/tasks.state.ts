@@ -20,14 +20,18 @@ export class TasksState {
   }
 
   addTask(text: string): void {
-    const newTask: TaskInterface = {
-      text,
-      isCompleted: false,
-      id: Math.random().toString(16),
-    };
+    if (text) {
+      const newTask: TaskInterface = {
+        text,
+        isCompleted: false,
+        id: Math.random().toString(16),
+      };
 
-    const updatedTasks = [...this.tasks$.getValue(), newTask];
-    this.tasks$.next(updatedTasks);
+      const updatedTasks = [...this.tasks$.getValue(), newTask];
+      this.tasks$.next(updatedTasks);
+    } else {
+      alert('Enter text');
+    }
   }
 
   toggleAllTasks(isCompleted: boolean): void {
