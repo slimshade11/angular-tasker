@@ -39,7 +39,7 @@ export class FooterComponent {
     this.filter$ = this.tasksFacade.getFilter();
   }
 
-  changeFilter(filter: FilterEnum): void {
-    this.tasksFacade.setFilter(filter);
+  changeFilter(filterName: FilterEnum): void {
+    this.tasksFacade.setFilter(filterName);
   }
 }

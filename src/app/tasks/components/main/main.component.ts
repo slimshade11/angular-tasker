@@ -16,6 +16,7 @@ export class MainComponent implements OnInit, OnDestroy {
   tasks$: Observable<TaskInterface[]> = this.tasksFacade.getTasks();
   isTaskListEmpty$: Observable<boolean>;
   isAllTasksSelected$: Observable<boolean>;
+  editingId: string | null = null;
 
   destroy$: Subject<void> = new Subject<void>();
 
@@ -54,6 +55,11 @@ export class MainComponent implements OnInit, OnDestroy {
   toggleAllTasks(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.tasksFacade.toggleAllTasks(target.checked);
+  }
+
+  setEditingId(editingId: any): void {
+    this.editingId = editingId;
+    console.log(this.editingId);
   }
 
   ngOnDestroy(): void {

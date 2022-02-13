@@ -5,27 +5,24 @@
   </span>
   <ul class="filters">
     <li>
-      <span
-        class="link"
+      <a
         [class.selected]="(filter$ | async) === filterEnum.all"
         (click)="changeFilter(filterEnum.all)"
-        >All</span
+        >All</a
       >
     </li>
     <li>
-      <span
-        class="link"
+      <a
         [class.selected]="(filter$ | async) === filterEnum.active"
         (click)="changeFilter(filterEnum.active)"
-        >Active</span
+        >Active</a
       >
     </li>
     <li>
-      <span
-        class="link"
+      <a
         [class.selected]="(filter$ | async) === filterEnum.completed"
         (click)="changeFilter(filterEnum.completed)"
-        >Completed</span
+        >Completed</a
       >
     </li>
   </ul>
