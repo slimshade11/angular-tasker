@@ -89,9 +89,7 @@ export class TasksState {
   }
 
   loadTasksFromLocalStorage(): void {
-    if (this.tasks$.getValue().length === 0) {
-      const tasks: TaskInterface[] = JSON.parse(localStorage.getItem('tasks'));
-      this.tasks$.next(tasks);
-    }
+    const tasks: TaskInterface[] = JSON.parse(localStorage.getItem('tasks'));
+    this.tasks$.next(tasks);
   }
 }
