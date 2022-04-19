@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Observable, Subject } from 'rxjs';
+import { map, takeUntil } from 'rxjs/operators';
+
 import { TaskInterface } from 'src/app/tasks/types/task.interface';
 import { FilterEnum } from 'src/app/tasks/types/filter.enum';
 import { TasksFacade } from 'src/app/tasks/tasks.facade';
-import { map, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -11,27 +12,23 @@ import { map, takeUntil } from 'rxjs/operators';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnDestroy {
+  isTaskListEmpty$: Observable<boolean>;
+  isAllTasksSelected$: Observable<boolean>;
   visibleTasks$: Observable<TaskInterface[]>;
   filter$: Observable<FilterEnum> = this.tasksFacade.getFilter();
   tasks$: Observable<TaskInterface[]> = this.tasksFacade.getTasks();
-  isTaskListEmpty$: Observable<boolean>;
-  isAllTasksSelected$: Observable<boolean>;
-  editingId: string | null = null;
-
   destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private tasksFacade: TasksFacade) {
-    this.isAllTasksSelected$ = this.tasksFacade.getTasks().pipe(
-      map((tasks) => {
-        return tasks.every((task) => task.isCompleted);
-      }),
-    );
+  editingId: string | null = null;
 
-    this.isTaskListEmpty$ = this.tasksFacade.getTasks().pipe(
-      map((tasks) => {
-        return tasks.length === 0;
-      }),
-    );
+  constructor(private tasksFacade: TasksFacade) {
+    this.isAllTasksSelected$ = this.tasksFacade
+      .getTasks()
+      .pipe(map((tasks) => tasks.every((task) => task.isCompleted)));
+
+    this.isTaskListEmpty$ = this.tasksFacade
+      .getTasks()
+      .pipe(map((tasks) => tasks.length === 0));
   }
 
   ngOnInit(): void {

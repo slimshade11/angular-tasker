@@ -1,6 +1,6 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { FilterEnum } from 'src/app/tasks/types/filter.enum';
 import { TaskInterface } from 'src/app/tasks/types/task.interface';
 
@@ -29,6 +29,7 @@ export class TasksState {
 
       const updatedTasks = [...this.tasks$.getValue(), newTask];
       this.tasks$.next(updatedTasks);
+      this.saveTasksToLocalStorage();
     } else {
       alert('Enter text');
     }
@@ -40,6 +41,7 @@ export class TasksState {
     });
 
     this.tasks$.next(updatedTasks);
+    this.saveTasksToLocalStorage();
   }
 
   toggleSingleTask(id: string): void {
@@ -54,6 +56,7 @@ export class TasksState {
     });
 
     this.tasks$.next(updatedTasks);
+    this.saveTasksToLocalStorage();
   }
 
   setFilter(filter: FilterEnum): void {
@@ -72,11 +75,23 @@ export class TasksState {
     });
 
     this.tasks$.next(updatedTasks);
+    this.saveTasksToLocalStorage();
   }
 
   removeTask(id: string): void {
     const updatedTasks = this.tasks$.getValue().filter((task) => task.id !== id);
 
     this.tasks$.next(updatedTasks);
+  }
+
+  saveTasksToLocalStorage(): void {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks$.getValue()));
+  }
+
+  loadTasksFromLocalStorage(): void {
+    if (this.tasks$.getValue().length === 0) {
+      const tasks: TaskInterface[] = JSON.parse(localStorage.getItem('tasks'));
+      this.tasks$.next(tasks);
+    }
   }
 }

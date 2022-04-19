@@ -18,23 +18,17 @@ export class FooterComponent {
   filterEnum = FilterEnum;
 
   constructor(private tasksFacade: TasksFacade) {
-    this.activeTasksLength$ = this.tasksFacade.getTasks().pipe(
-      map((tasks) => {
-        return tasks.filter((task) => !task.isCompleted).length;
-      }),
-    );
+    this.activeTasksLength$ = this.tasksFacade
+      .getTasks()
+      .pipe(map((tasks) => tasks.filter((task) => !task.isCompleted).length));
 
     this.itemsLeftText$ = this.activeTasksLength$.pipe(
-      map((activeCount: number) => {
-        return `item${activeCount === 1 ? '' : 's'}`;
-      }),
+      map((activeCount: number) => `item${activeCount === 1 ? '' : 's'}`),
     );
 
-    this.isTaskListEmpty$ = this.tasksFacade.getTasks().pipe(
-      map((tasks) => {
-        return tasks.length === 0;
-      }),
-    );
+    this.isTaskListEmpty$ = this.tasksFacade
+      .getTasks()
+      .pipe(map((tasks) => tasks.length === 0));
 
     this.filter$ = this.tasksFacade.getFilter();
   }

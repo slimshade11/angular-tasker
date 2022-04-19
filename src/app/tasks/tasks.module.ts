@@ -9,7 +9,7 @@ import { HeaderComponent } from 'src/app/tasks/components/header/header.componen
 import { MainComponent } from 'src/app/tasks/components/main/main.component';
 import { TaskComponent } from 'src/app/tasks/components/task/task.component';
 import { TasksState } from 'src/app/tasks/state/tasks.state';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from 'src/app/tasks/components/footer/footer.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TasksComponent, HeaderComponent, MainComponent, TaskComponent, FooterComponent],
+  declarations: [
+    TasksComponent,
+    HeaderComponent,
+    MainComponent,
+    TaskComponent,
+    FooterComponent,
+  ],
   imports: [CommonModule, RouterModule.forChild(routes), InputTextModule, ButtonModule],
   providers: [TasksState],
 })

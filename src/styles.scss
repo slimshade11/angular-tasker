@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(29, 24, 58);
+  color: #000 !important;
 }
 
 button {
@@ -19,10 +19,15 @@ button {
   appearance: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
 }
 
 input.edit {
   color: #000;
+}
+
+input {
+  cursor: pointer;
 }
 
 body {

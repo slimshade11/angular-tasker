@@ -1,0 +1,17 @@
+input {
+  border: #ccc solid 1px;
+  border-radius: 5px;
+}
+
+p-button {
+  &.p-button {
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    border: #ccc solid 1px;
+    transition-duration: 0.3s;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}

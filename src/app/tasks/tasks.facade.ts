@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TasksState } from './state/tasks.state';
-import { FilterEnum } from './types/filter.enum';
-import { TaskInterface } from './types/task.interface';
+
+import { TasksState } from 'src/app/tasks/state/tasks.state';
+import { FilterEnum } from 'src/app/tasks/types/filter.enum';
+import { TaskInterface } from 'src/app/tasks/types/task.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +41,9 @@ export class TasksFacade {
 
   removeTask(id: string): void {
     this.tasksState.removeTask(id);
+  }
+
+  loadTasksFromLocalStorage(): void {
+    this.tasksState.loadTasksFromLocalStorage();
   }
 }
